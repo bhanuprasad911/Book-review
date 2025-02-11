@@ -1,0 +1,16 @@
+.mainlight{
+    color: rgb(88, 88, 88);
+
+}
+
+.maindark{
+    color: white;
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    margin-left: 3%;
+    /* margin-right: 2%; */
+}

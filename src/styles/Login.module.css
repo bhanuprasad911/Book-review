@@ -1,0 +1,125 @@
+
+.main{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.logindiv{
+    /* border: 1px solid purple; */
+    width: 30%;
+    height: 70vh;
+    box-shadow: 0px 0px 10px grey;
+    border-radius:2% ;
+
+}
+.label{
+    /* margin: 1%; */
+    display: block;
+    font-size: xx-large;
+}
+.input{
+    background-color: white;
+    
+     color: black;
+     border-radius: 2px;
+    width: 90%;
+    height: 8%;
+    /* margin-left: 2%; */
+    margin-bottom: 5%;
+    margin-top: -3%;
+    padding: 3%;
+    font-size: large;
+}
+.input,.label,.p, .button{
+    margin-left: 5%;
+    width: 90%;
+    height: 8%;
+}
+.login{
+    height: 8%;
+    margin-left: 5%;
+    background-color: purple;
+    color: white;
+    font-size: xx-large;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    margin-top: 5%;
+    border-radius: 3px;
+    width: 90%;
+}
+.login:hover{
+    transition: 300ms;
+    background-color: rgb(91, 16, 91);
+    color: rgb(200, 199, 199);
+
+}
+.heading{
+    margin-top: 3%;
+    text-align: center;
+    margin-bottom: 10%;
+}
+.sign{
+    color: white;
+}
+.p{
+    background-color: white;
+    margin-top: 5%;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: medium;
+    padding-top: 3%;
+    border-radius: 3px;
+}
+.sign{
+    text-decoration: none;
+    color: purple;
+}
+.sign:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+.inputlight{
+    background-color: rgb(197, 197, 197);
+
+}
+
+.inputdark{
+    background-color: white
+
+}
+
+.labellight{
+    color: black;
+
+}
+
+.labeldark{
+    color: white;
+
+}
+.headlight{
+    color: black;
+
+}
+.headdark{
+    color: white;
+
+}
+.buttonlight{
+    background-color: rgb(115, 115, 235)
+
+}
+.buttonlight:hover{
+    background-color: rgb(95, 95, 212)
+
+}
+
+.buttondark{
+    background-color: purple;
+
+}
