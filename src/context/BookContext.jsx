@@ -12,25 +12,39 @@ export const BookContextProvider=({children})=>{
   const storedBooks = localStorage.getItem('books');
   return storedBooks ? JSON.parse(storedBooks) : []
  });
- useEffect(() => {
-  console.log("🔄 useEffect triggered - Fetching books...");
+ const [fetchTrigger, setFetchTrigger] = useState(false);
 
-    // fetch('https://www.dbooks.org/api/recent', {mode:'cors'})
-    //   .then((response) => {
-    //     console.log("📡 API Response Status:", response.status)
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP Error: ${response.status}`);
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     setBooks(data.books || []);
-    //     localStorage.setItem('books', JSON.stringify(data.books || []));
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching books:", error);
-    //   });
-  }, []);
+ useEffect(() => {
+   console.log("🚀 Initial Mount - useEffect Not Running Yet...");
+   setTimeout(() => {
+     setFetchTrigger(true);
+   }, 1000); // 🔴 Delay fetch by 1s
+ }, []);
+ 
+ useEffect(() => {
+   if (!fetchTrigger) return; // 🔴 Only run fetch AFTER timeout
+ 
+   console.log("🔄 useEffect triggered - Fetching books...");
+ 
+   fetch("https://www.dbooks.org/api/recent", { mode: "cors" })
+     .then((response) => {
+       console.log("📡 API Response Status:", response.status);
+       if (!response.ok) {
+         throw new Error(`HTTP Error: ${response.status}`);
+       }
+       return response.json();
+     })
+     .then((data) => {
+       console.log("📚 Parsed Books Data:", data.books);
+       setBooks(data.books || []);
+       localStorage.setItem("books", JSON.stringify(data.books || []));
+     })
+     .catch((error) => {
+       console.error("❌ Fetch Error:", error);
+     });
+ 
+ }, [fetchTrigger]); // 🔴 useEffect will now re-run when `fetchTrigger` changes
+ 
 
      return(
         <BookContext.Provider value={{books, setBooks}}>
