@@ -4,16 +4,22 @@ import { useEffect } from "react";
 export const BookContext = createContext();
 
 export const BookContextProvider=({children})=>{
+  console.log("📢 BookContextProvider Mounted!"); // Check if this logs
+
  const [books, setBooks] = useState(()=>{
+  console.log("📂 Loading books from localStorage...");
+
   const storedBooks = localStorage.getItem('books');
   return storedBooks ? JSON.parse(storedBooks) : []
  });
  useEffect(() => {
-  console.log('in use effect')
-    fetch('https://www.dbooks.org/api/recent')
+  console.log("🔄 useEffect triggered - Fetching books...");
+
+    fetch('https://www.dbooks.org/api/recent', {mode:'cors'})
       .then((response) => {
+        console.log("📡 API Response Status:", response.status)
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(`HTTP Error: ${response.status}`);
         }
         return response.json();
       })
