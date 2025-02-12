@@ -15,26 +15,22 @@ export const BookContextProvider=({children})=>{
  useEffect(() => {
   console.log("🔄 useEffect triggered - Fetching books...");
 
-  // 🚨 Clear Local Storage to force API call
-  localStorage.removeItem("books");
-
-  fetch("https://www.dbooks.org/api/recent", { mode: "cors" })
-    .then((response) => {
-      console.log("📡 API Response Status:", response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("📚 Parsed Books Data:", data.books);
-      setBooks(data.books || []);
-      localStorage.setItem("books", JSON.stringify(data.books || []));
-    })
-    .catch((error) => {
-      console.error("❌ Fetch Error:", error);
-    });
-}, []);
+    // fetch('https://www.dbooks.org/api/recent', {mode:'cors'})
+    //   .then((response) => {
+    //     console.log("📡 API Response Status:", response.status)
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP Error: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     setBooks(data.books || []);
+    //     localStorage.setItem('books', JSON.stringify(data.books || []));
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching books:", error);
+    //   });
+  }, []);
 
      return(
         <BookContext.Provider value={{books, setBooks}}>
