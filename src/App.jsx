@@ -10,30 +10,20 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Home from "./Home";
 import { ThemeContext, ThemeProvider } from "./context/ThemeContext";
-import { AuthProvider } from "./context/AuthContext";
-import { BookContextProvider } from "./context/BookContext";
+// import { AuthProvider } from "./context/AuthContext";
+// import { BookContextProvider } from "./context/BookContext";
 import BookDetail from "./BookDetails";
 import appStyle from "./styles/App.module.css";
 // import Signupsuccess from "./signupsuccess.jsx";
 import { useContext } from "react";
 import Head from "./Head";
 import UserProfile from './UserProfile.jsx'
-import { BooklistProvider } from "./context/BooklistContext.jsx";
+// import { BooklistProvider } from "./context/BooklistContext.jsx";
 import Allbooks from "./Allbooks.jsx";
 
 function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <BookContextProvider>
-        <BooklistProvider>
-          <Router>
-            <MainContent />
-          </Router>
-        </BooklistProvider>
-        </BookContextProvider>
-      </AuthProvider>
-    </ThemeProvider>
+            <MainContent />  
   );
 }
 

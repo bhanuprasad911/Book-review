@@ -9,6 +9,7 @@ export const BookContextProvider=({children})=>{
   return storedBooks ? JSON.parse(storedBooks) : []
  });
  useEffect(() => {
+  console.log('in use effect')
     fetch('https://www.dbooks.org/api/recent')
       .then((response) => {
         if (!response.ok) {
