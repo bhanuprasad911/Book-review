@@ -12,12 +12,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <AuthProvider>
-        <BookContextProvider>
-          <Router>
-        <BooklistProvider>
-            <App />
-        </BooklistProvider>
-          </Router>
+        <BookContextProvider> {/* ✅ Ensure this is at the correct level */}
+          <BooklistProvider>
+            <Router>
+              <App />
+            </Router>
+          </BooklistProvider>
         </BookContextProvider>
       </AuthProvider>
     </ThemeProvider>
