@@ -13,11 +13,11 @@ createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <AuthProvider>
         <BookContextProvider>
-        <BooklistProvider>
           <Router>
+        <BooklistProvider>
             <App />
-          </Router>
         </BooklistProvider>
+          </Router>
         </BookContextProvider>
       </AuthProvider>
     </ThemeProvider>
