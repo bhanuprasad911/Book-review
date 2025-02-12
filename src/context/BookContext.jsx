@@ -13,24 +13,25 @@ export const BookContextProvider=({children})=>{
   return storedBooks ? JSON.parse(storedBooks) : []
  });
  useEffect(() => {
-  console.log("🔄 useEffect triggered - Fetching books...");
+  console.log("🔄 useEffect triggered - Fetching books..."); // This should log!
 
-    fetch('https://www.dbooks.org/api/recent', {mode:'cors'})
-      .then((response) => {
-        console.log("📡 API Response Status:", response.status)
-        if (!response.ok) {
-          throw new Error(`HTTP Error: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setBooks(data.books || []);
-        localStorage.setItem('books', JSON.stringify(data.books || []));
-      })
-      .catch((error) => {
-        console.error("Error fetching books:", error);
-      });
-  }, []);
+  fetch("https://www.dbooks.org/api/recent", { mode: "cors" }) // Force CORS mode
+    .then((response) => {
+      console.log("📡 API Response Status:", response.status); // Debug API call
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("📚 Parsed Books Data:", data.books);
+      setBooks(data.books || []);
+      localStorage.setItem("books", JSON.stringify(data.books || []));
+    })
+    .catch((error) => {
+      console.error("❌ Fetch Error:", error);
+    });
+}, []);
      return(
         <BookContext.Provider value={{books, setBooks}}>
             {children}
