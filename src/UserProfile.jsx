@@ -5,7 +5,7 @@ import users from './assets/users.json'
 import { AuthContext } from './context/AuthContext'
 import Head from './Head'
 import { Link } from 'react-router-dom'
-import profilestyles from './styles/UserProfile.module.css'
+import profilestyles from './styles/Userprofile.module.css'
 import { ThemeContext } from './context/ThemeContext'
 
 function userProfile() {
